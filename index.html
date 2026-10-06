@@ -7,41 +7,20 @@
 <title>Sense of Urgency: Let's Vamoos | Edusport Travel</title>
 <style>
   :root{
-    --navy:#034EA1;
-    --navy-dark:#023d80;
-    --green:#009040;
-    --green-light:#e8f6ee;
-    --amber:#f2a900;
+    --navy:#034EA1; --navy-dark:#023d80; --navy-pale:#eaf2fc;
+    --green:#009040; --green-light:#e8f6ee;
+    --amber:#f2a900; --amber-pale:#fff6e6; --amber-ink:#9a6b00;
+    --red:#a3323f; --red-pale:#fdeef0;
     --teal:#5ee0a0;
-    --ink:#1c2430;
-    --grey:#5b6472;
-    --line:#e3e7ee;
-    --paper:#ffffff;
-    --bg:#eef1f6;
+    --ink:#1c2430; --grey:#5b6472; --line:#e3e7ee; --paper:#ffffff; --bg:#eef1f6;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.55;
-  }
-  .page{
-    max-width:1000px; margin:32px auto; background:var(--paper);
-    border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(20,30,60,.12);
-    position:relative;
-  }
-  .topbar{
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:14px 28px; background:#fff; border-bottom:1px solid var(--line);
-  }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .page{max-width:1000px; margin:32px auto; background:var(--paper); border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(20,30,60,.12); position:relative;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 28px; background:#fff; border-bottom:1px solid var(--line);}
   .topbar img{height:44px; width:auto; display:block;}
   .topbar .label{font-size:12px; font-weight:700; color:var(--grey); text-transform:uppercase; letter-spacing:.1em; text-align:right;}
-  .print-btn{
-    position:fixed; top:18px; right:18px; z-index:10;
-    background:var(--navy); color:#fff; border:none;
-    padding:9px 16px; border-radius:999px; font-size:12px; font-weight:700; cursor:pointer;
-    box-shadow:0 2px 10px rgba(3,78,161,.3);
-  }
+  .print-btn{position:fixed; top:18px; right:18px; z-index:10; background:var(--navy); color:#fff; border:none; padding:9px 16px; border-radius:999px; font-size:12px; font-weight:700; cursor:pointer; box-shadow:0 2px 10px rgba(3,78,161,.3);}
   .print-btn:hover{background:var(--navy-dark);}
   .hero{background:var(--navy); color:#fff; padding:36px 28px 30px;}
   .hero .eyebrow{font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:#bcd4f2; font-weight:700; margin-bottom:10px;}
@@ -50,36 +29,86 @@
   .hero p{margin:0; color:#dbe7f7; font-size:15px; max-width:720px;}
   .leadstrip{background:var(--green); color:#fff; padding:12px 28px; font-size:14px; font-weight:700;}
   .body{padding:30px 28px 40px;}
-  section{margin:0 0 36px;}
+  section{margin:0 0 40px;}
   h2{font-family:"Barlow Condensed",Inter,"Arial Narrow",sans-serif; font-size:26px; color:var(--navy); margin:0 0 4px; border-bottom:2px solid var(--line); padding-bottom:8px; letter-spacing:.2px;}
   h2 .num{color:var(--green); margin-right:8px;}
   h3{color:var(--navy); font-size:16px; margin:20px 0 6px;}
   .sub{color:var(--grey); font-size:13.5px; margin:6px 0 16px;}
   p{font-size:14.5px;}
+
+  /* 30-second version */
+  .tldr{display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; background:var(--navy-pale); border:1px solid #cfe0f7; border-radius:12px; padding:18px 20px; margin:0 0 36px;}
+  .tldr .stamp{font-family:"Barlow Condensed",Inter,sans-serif; font-weight:800; color:var(--navy); font-size:15px; text-transform:uppercase; letter-spacing:.06em; text-align:center; line-height:1.1;}
+  .tldr .stamp b{display:block; font-size:38px; color:var(--green);}
+  .tldr ul{margin:0; padding-left:18px; font-size:14px;}
+  .tldr li{margin:3px 0;}
+
   .callout{border-radius:12px; padding:16px 18px; margin:16px 0; font-size:14px;}
-  .callout.info{background:#eaf2fc; border:1px solid #cfe0f7;}
-  .callout.warn{background:#fff6e6; border:1px solid #f3ddad;}
+  .callout.info{background:var(--navy-pale); border:1px solid #cfe0f7;}
+  .callout.warn{background:var(--amber-pale); border:1px solid #f3ddad;}
   .callout.good{background:var(--green-light); border:1px solid #cdeedb;}
   .callout strong{display:block; margin-bottom:4px; color:var(--navy);}
-  .callout.warn strong{color:#9a6b00;}
+  .callout.warn strong{color:var(--amber-ink);}
   .callout.good strong{color:var(--green);}
   .big-line{font-family:"Barlow Condensed",Inter,"Arial Narrow",sans-serif; font-size:24px; font-weight:700; color:var(--navy); line-height:1.25; margin:18px 0; padding-left:14px; border-left:4px solid var(--amber);}
+
   table.qa{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
   table.qa th, table.qa td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
   table.qa th{background:#f5f7fb; color:var(--navy); font-size:12px; text-transform:uppercase; letter-spacing:.04em;}
   table.qa td:first-child{font-weight:600; color:var(--navy); width:22%;}
+
   .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin:14px 0;}
-  .card{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:#fff;}
+  .card{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:#fff; transition:transform .15s, box-shadow .15s;}
+  .card:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(20,30,60,.08);}
+  .card .ico{font-size:22px; line-height:1; margin-bottom:8px;}
   .card .tag{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:3px 10px; border-radius:999px; margin-bottom:8px;}
-  .tag.chill{background:#eaf2fc; color:var(--navy);}
+  .tag.chill{background:var(--navy-pale); color:var(--navy);}
   .tag.vamoos{background:var(--green-light); color:var(--green);}
-  .tag.panic{background:#fff6e6; color:#9a6b00;}
+  .tag.panic{background:var(--amber-pale); color:var(--amber-ink);}
+  .card.target{border:2px solid var(--green);}
   .card h4{margin:0 0 6px; font-size:15px; color:var(--ink);}
   .card p{margin:0; font-size:13.5px; color:var(--grey);}
+
+  /* Race animation */
+  .race{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:16px 0;}
+  .race-head{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; background:var(--navy); color:#fff;}
+  .race-head .t{font-family:"Barlow Condensed",Inter,sans-serif; font-size:19px; font-weight:700; letter-spacing:.3px;}
+  .race-head .clock{font-variant-numeric:tabular-nums; font-weight:800; font-size:14px; background:rgba(255,255,255,.14); padding:4px 10px; border-radius:999px; white-space:nowrap;}
+  .race-btn{background:var(--teal); color:var(--navy-dark); border:none; border-radius:999px; padding:7px 14px; font-weight:800; font-size:12px; cursor:pointer;}
+  .race-bar{height:4px; background:#dbe3ee;}
+  .race-bar i{display:block; height:100%; width:0; background:var(--amber); transition:width .6s ease;}
+  .lanes{display:grid; grid-template-columns:1fr 1fr;}
+  .lane{padding:14px 14px 18px; min-height:430px;}
+  .lane + .lane{border-left:1px solid var(--line);}
+  .lane-title{display:flex; align-items:center; gap:8px; font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;}
+  .lane.a .lane-title{color:var(--green);} .lane.b .lane-title{color:var(--amber-ink);}
+  .lane-title .dot{width:10px; height:10px; border-radius:50%;}
+  .lane.a .dot{background:var(--green);} .lane.b .dot{background:var(--amber);}
+  .ev{opacity:0; transform:translateY(8px); transition:opacity .45s ease, transform .45s ease; border-radius:10px; padding:9px 11px; margin:0 0 8px; font-size:13px; background:#f5f7fb; border:1px solid var(--line);}
+  .ev.show{opacity:1; transform:none;}
+  .ev .tm{display:block; font-size:11px; font-weight:800; color:var(--grey); letter-spacing:.04em; margin-bottom:2px;}
+  .ev.win{background:var(--green-light); border-color:#9fdcb9; font-weight:700; color:var(--green);}
+  .ev.lose{background:var(--red-pale); border-color:#f5c9cf; font-weight:700; color:var(--red);}
+  .ev.client{background:var(--navy-pale); border-color:#cfe0f7;}
+  .race-end{opacity:0; transition:opacity .6s; padding:14px 16px; background:var(--ink); color:#fff; font-weight:700; text-align:center; font-size:15px;}
+  .race-end.show{opacity:1;}
+  .race-end span{color:var(--teal);}
+
+  /* Clock tiles */
+  .clocks{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:14px 0;}
+  .clock-tile{border-radius:14px; padding:18px; border:1px solid var(--line); background:#fff; position:relative; overflow:hidden;}
+  .clock-tile:before{content:""; position:absolute; left:0; top:0; right:0; height:5px;}
+  .clock-tile.q:before{background:var(--navy);} .clock-tile.p:before{background:var(--amber);} .clock-tile.c:before{background:var(--red);}
+  .clock-tile .what{font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--grey);}
+  .clock-tile .when{font-family:"Barlow Condensed",Inter,sans-serif; font-size:40px; font-weight:800; line-height:1.05; margin:6px 0 8px;}
+  .clock-tile.q .when{color:var(--navy);} .clock-tile.p .when{color:var(--amber-ink);} .clock-tile.c .when{color:var(--red);}
+  .clock-tile p{margin:0; font-size:13.5px; color:var(--grey);}
+
   .checklist{list-style:none; margin:10px 0; padding:0;}
-  .checklist li{padding:9px 0 9px 28px; border-bottom:1px solid var(--line); position:relative; font-size:14px;}
+  .checklist li{padding:10px 0 10px 30px; border-bottom:1px solid var(--line); position:relative; font-size:14px;}
   .checklist li:last-child{border-bottom:none;}
-  .checklist li:before{content:"◻"; position:absolute; left:0; color:var(--green); font-size:15px;}
+  .checklist li:before{content:"✓"; position:absolute; left:2px; top:9px; width:20px; height:20px; border-radius:50%; background:var(--green-light); color:var(--green); font-size:12px; font-weight:800; text-align:center; line-height:20px;}
+
   .scenario{border:1px solid var(--line); border-radius:12px; margin:12px 0; overflow:hidden;}
   .scenario .q{padding:14px 18px; background:#f5f7fb; font-size:14px;}
   .scenario .q b{color:var(--navy);}
@@ -88,22 +117,43 @@
   .scenario .a{display:none; padding:14px 18px; font-size:14px; border-top:1px solid var(--line); background:var(--green-light);}
   .scenario.open .a{display:block;}
   .scenario .a strong{color:var(--green);}
-  ol.steps{padding-left:20px; font-size:14px;}
-  ol.steps li{margin-bottom:8px;}
+
+  .closer{background:var(--navy); color:#fff; border-radius:14px; padding:26px 24px; text-align:center;}
+  .closer h3{color:#fff; font-family:"Barlow Condensed",Inter,sans-serif; font-size:28px; margin:0 0 6px;}
+  .closer h3 span{color:var(--teal);}
+  .closer p{color:#dbe7f7; margin:0 auto; max-width:620px;}
+
   footer{background:#f5f7fb; padding:18px 28px; text-align:center; font-size:12px; color:var(--grey); border-top:1px solid var(--line);}
+
+  @media (max-width:720px){
+    .clocks{grid-template-columns:1fr;}
+  }
   @media (max-width:640px){
+    .print-btn{top:auto; bottom:16px; right:16px;}
     .topbar{padding:12px 16px;} .topbar img{height:34px;} .topbar .label{display:none;}
     .hero,.leadstrip,.body,footer{padding-left:16px; padding-right:16px;}
     .hero h1{font-size:32px;}
     .page{margin:0; border-radius:0;}
+    .tldr{grid-template-columns:1fr; text-align:left;}
+    .tldr .stamp{text-align:left;} .tldr .stamp b{display:inline; font-size:22px; margin-right:6px;}
+    .lane{padding:10px 8px 12px; min-height:520px;}
+    .ev{font-size:12px; padding:8px 9px;}
+    .race-head .t{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ev,.race-end,.race-bar i{transition:none;}
   }
   @media print{
     body{background:#fff;}
     .page{box-shadow:none; margin:0; border-radius:0;}
-    .print-btn,.scenario button{display:none;}
+    .print-btn,.scenario button,.race-btn{display:none;}
     .scenario .a{display:block;}
-    .hero,.leadstrip,.callout,.tag,.scenario .q,.scenario .a{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
-    section{break-inside:auto;} .card,.callout,.scenario{break-inside:avoid;}
+    .ev,.race-end{opacity:1 !important; transform:none !important;}
+    .race-bar i{width:100% !important;}
+    .lane{min-height:0;}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .card,.callout,.scenario,.clock-tile,.race,.tldr,.closer{break-inside:avoid;}
+    .card:hover{transform:none; box-shadow:none;}
   }
 </style>
 </head>
@@ -126,34 +176,46 @@
 
   <div class="body">
 
+    <div class="tldr">
+      <div class="stamp"><b>30s</b>version</div>
+      <ul>
+        <li>Your calm is an asset. Keep it. Just point it at the things with a clock on them.</li>
+        <li>Quotes and consultations: within 24 hours. Payments and complaints: straight away.</li>
+        <li>You don't need the answer to reply. Acknowledge, set a time, then hit it.</li>
+      </ul>
+    </div>
+
+    <section id="feels">
+      <h2><span class="num">01</span>You Already Know How This Feels</h2>
+      <p class="sub">Because you've been on the other side of it</p>
+      <div class="grid">
+        <div class="card"><div class="ico">👀</div><h4>Left on read</h4><p>You message someone, you see the ticks, and nothing comes back. How does that feel? That's the client waiting on a quote.</p></div>
+        <div class="card"><div class="ico">💬</div><h4>The match that went cold</h4><p>You match, the chat is flowing, then they reply three days later and the vibe is gone. A new enquiry is exactly that: the spark is strongest at the start.</p></div>
+        <div class="card"><div class="ico">🚗</div><h4>The Uber request</h4><p>If the driver doesn't accept, the ride goes to the next one. An enquiry left sitting doesn't wait for you, it books with whoever answers first.</p></div>
+        <div class="card"><div class="ico">🛵</div><h4>The delivery app</h4><p>You love the tracker because you can see it moving. Clients want the same: proof that something is happening, even if it's not done yet.</p></div>
+        <div class="card"><div class="ico">🎟️</div><h4>Concert tickets drop</h4><p>You've sat in a queue knowing that a few minutes means the difference between in and out. Our clients live that every time they book an event.</p></div>
+        <div class="card"><div class="ico">🔥</div><h4>The streak</h4><p>A streak stays alive with one small action a day, and one missed day breaks it. Following up on a parked quote works the same way.</p></div>
+      </div>
+      <div class="big-line">The speed of the reply is part of the product.</div>
+      <p>A client doesn't just judge us on the trip. They judge us on how it felt to deal with us. Quick, warm, clear replies tell them: these people have got me.</p>
+    </section>
+
     <section id="calm">
-      <h2><span class="num">01</span>This Isn't About Rushing</h2>
-      <p class="sub">Let's clear that up first</p>
+      <h2><span class="num">02</span>This Isn't About Rushing</h2>
+      <p class="sub">Let's clear that up</p>
       <p>Not letting things rattle you is a genuine strength. Clients don't want a frazzled consultant, and nobody does good work in a constant state of stress. So keep that.</p>
       <p>A sense of urgency is something different. It's not stress, and it's not speed for the sake of looking busy. It's simply knowing which things have a clock on them, and acting before the clock runs out.</p>
       <div class="big-line">The best finishers are calm in front of goal. They still shoot quickly.</div>
-      <p>Take one touch too many and the defender closes the gap. Composure is what makes the shot good; speed is what makes it count. That's the whole idea here: keep the composure, add the quick release.</p>
+      <p>Take one touch too many and the defender closes the gap. Composure is what makes the shot good; speed is what makes it count. Keep the composure, add the quick release.</p>
       <div class="grid">
-        <div class="card">
-          <span class="tag chill">Too chill</span>
-          <h4>"I'll sort it after lunch"</h4>
-          <p>Relaxed, but the client has already had three other replies and moved on.</p>
-        </div>
-        <div class="card">
-          <span class="tag vamoos">Vamoos</span>
-          <h4>"On it, back to you shortly"</h4>
-          <p>Calm, clear, and moving. This is the target.</p>
-        </div>
-        <div class="card">
-          <span class="tag panic">Panic mode</span>
-          <h4>Everything is a fire</h4>
-          <p>Fast, but sloppy. Mistakes on a quote cost more time than they save.</p>
-        </div>
+        <div class="card"><span class="tag chill">Too chill</span><h4>"I'll sort it after lunch"</h4><p>Relaxed, but the client has already had three other replies and moved on.</p></div>
+        <div class="card target"><span class="tag vamoos">Vamoos</span><h4>"On it, back to you shortly"</h4><p>Calm, clear, and moving. This is the target.</p></div>
+        <div class="card"><span class="tag panic">Panic mode</span><h4>Everything is a fire</h4><p>Fast, but sloppy. Mistakes on a quote cost more time than they save.</p></div>
       </div>
     </section>
 
     <section id="why">
-      <h2><span class="num">02</span>Why Travel Moves Fast</h2>
+      <h2><span class="num">03</span>Why Travel Moves Fast</h2>
       <p class="sub">The clock isn't ours, it's the market's</p>
       <p>In a lot of jobs, a day's delay doesn't change much. In sports travel, it can change everything, because most of what we sell is limited and moving.</p>
       <table class="qa">
@@ -169,53 +231,76 @@
       </div>
     </section>
 
-    <section id="left-on-read">
-      <h2><span class="num">03</span>You Already Know How This Feels</h2>
-      <p class="sub">Because you've been on the other side of it</p>
-      <div class="grid">
-        <div class="card">
-          <h4>Left on read</h4>
-          <p>You message someone, you see the ticks, and nothing comes back. How does that feel? That's the client waiting on a quote.</p>
+    <section id="trap">
+      <h2><span class="num">04</span>The "Later" Trap</h2>
+      <p class="sub">How a calm delay quietly costs a booking</p>
+      <p>Nobody decides to lose a client. It happens in small, reasonable-sounding steps. Watch the same enquiry land with two consultants who are equally good at their jobs.</p>
+
+      <div class="race" id="race">
+        <div class="race-head">
+          <div class="t">Same enquiry. Two consultants.</div>
+          <div class="clock" id="raceClock">Day 1 · 09:00</div>
+          <button class="race-btn" id="raceBtn" type="button">▶ Play</button>
         </div>
-        <div class="card">
-          <h4>The delivery app</h4>
-          <p>You love the tracker because you can see it moving. Clients want the same: proof that something is happening, even if it's not done yet.</p>
+        <div class="race-bar"><i id="raceBar"></i></div>
+        <div class="lanes">
+          <div class="lane a">
+            <div class="lane-title"><span class="dot"></span>Vamoos</div>
+            <div class="ev" data-s="1"><span class="tm">DAY 1 · 09:02</span>📩 Enquiry lands: a family keen on a Grand Prix weekend</div>
+            <div class="ev" data-s="2"><span class="tm">DAY 1 · 09:15</span>📞 Calls the client, asks the key questions</div>
+            <div class="ev client" data-s="3"><span class="tm">DAY 1 · 09:30</span>🙋 Client: "Wow, that was quick. Thanks!"</div>
+            <div class="ev" data-s="4"><span class="tm">DAY 1 · 12:00</span>📄 Quote sent while the fare is still live</div>
+            <div class="ev client" data-s="5"><span class="tm">DAY 1 · 16:00</span>🙋 Client: "Let's do it. Where do I pay?"</div>
+            <div class="ev win" data-s="6"><span class="tm">DAY 2 · 09:00</span>✅ Deposit in. Booked.</div>
+          </div>
+          <div class="lane b">
+            <div class="lane-title"><span class="dot"></span>Later</div>
+            <div class="ev" data-s="1"><span class="tm">DAY 1 · 09:02</span>📩 Same enquiry lands</div>
+            <div class="ev" data-s="2"><span class="tm">DAY 1 · 09:15</span>☕ "I'll look at it properly after this other thing"</div>
+            <div class="ev" data-s="4"><span class="tm">DAY 1 · 16:45</span>🌇 "I'll send the quote first thing tomorrow"</div>
+            <div class="ev" data-s="6"><span class="tm">DAY 2 · 09:00</span>📈 The fare has moved, so it's time to re-price</div>
+            <div class="ev" data-s="7"><span class="tm">DAY 2 · 11:30</span>📄 Quote finally sent</div>
+            <div class="ev lose" data-s="8"><span class="tm">DAY 2 · 12:10</span>🙋 Client: "Thanks, but we've already booked."</div>
+          </div>
         </div>
-        <div class="card">
-          <h4>Concert tickets drop</h4>
-          <p>You've sat in a queue knowing that a few minutes means the difference between in and out. Our clients live that every time they book an event.</p>
-        </div>
-        <div class="card">
-          <h4>The match that went cold</h4>
-          <p>You match, the chat is flowing, then they reply three days later and the vibe is gone. A new enquiry is exactly that: the spark is strongest at the start.</p>
-        </div>
-        <div class="card">
-          <h4>The Uber request</h4>
-          <p>If the driver doesn't accept, the ride goes to the next one. An enquiry left sitting doesn't wait for you, it books with whoever answers first.</p>
-        </div>
-        <div class="card">
-          <h4>The streak</h4>
-          <p>A streak stays alive with one small action a day, and one missed day breaks it. Following up on a parked quote works the same way.</p>
-        </div>
+        <div class="race-end" id="raceEnd">Same skill. Same client. The only difference was <span>when</span>.</div>
       </div>
-      <div class="big-line">The speed of the reply is part of the product.</div>
-      <p>A client doesn't just judge us on the trip. They judge us on how it felt to deal with us. Quick, warm, clear replies tell them: these people have got me.</p>
+
+      <div class="callout warn">
+        <strong>None of those steps felt urgent</strong>
+        That's the trap. Each delay felt fine on its own. Together, they cost the booking. A sense of urgency is just noticing the trap early and breaking the chain at the very first step.
+      </div>
     </section>
 
-    <section id="looks-like">
-      <h2><span class="num">04</span>What Vamoos Looks Like Day to Day</h2>
-      <p class="sub">Small habits, not big speeches</p>
-      <h3>Not every message has the same clock</h3>
-      <table class="qa">
-        <tr><th>What the client is waiting on</th><th>How fast</th></tr>
-        <tr><td>A quote or consultation</td><td><strong>Within 24 hours.</strong> That's the ceiling, not the target. The sooner the better on a new enquiry, while the client is excited and still shopping around.</td></tr>
-        <tr><td>A payment query</td><td><strong>Straight away.</strong> Someone wondering whether their money landed, or what they owe, is anxious. Waiting a day is not okay here.</td></tr>
-        <tr><td>A complaint</td><td><strong>Straight away.</strong> An upset client left waiting gets more upset. Reply immediately, even if the fix takes longer.</td></tr>
-      </table>
+    <section id="clock">
+      <h2><span class="num">05</span>Not Every Message Has the Same Clock</h2>
+      <p class="sub">Our response standard</p>
+      <div class="clocks">
+        <div class="clock-tile q">
+          <div class="what">Quote or consultation</div>
+          <div class="when">24 hrs</div>
+          <p>The ceiling, not the target. Sooner is better on a new enquiry, while the client is excited and still shopping around.</p>
+        </div>
+        <div class="clock-tile p">
+          <div class="what">Payment query</div>
+          <div class="when">Now</div>
+          <p>Someone wondering whether their money landed, or what they owe, is anxious. Waiting a day is not okay here.</p>
+        </div>
+        <div class="clock-tile c">
+          <div class="what">Complaint</div>
+          <div class="when">Now</div>
+          <p>An upset client left waiting gets more upset. Reply straight away, even if the fix takes longer.</p>
+        </div>
+      </div>
       <div class="callout warn">
         <strong>You don't need the answer to reply</strong>
         For payments and complaints, the first reply is about managing expectations: "I've seen this, I'm on it, and I'll update you by [time]." Then update them by that time, even if it's just to say you're still on it.
       </div>
+    </section>
+
+    <section id="habits">
+      <h2><span class="num">06</span>What Vamoos Looks Like Day to Day</h2>
+      <p class="sub">Small habits, not big speeches</p>
       <ul class="checklist">
         <li><strong>Acknowledge fast, even if you can't answer yet.</strong> "Got it, I'm checking availability and will come back to you this afternoon" buys you time and keeps the client with you.</li>
         <li><strong>Call first, then move the stage.</strong> A call gets more done in five minutes than a thread of emails gets done in a day.</li>
@@ -227,81 +312,79 @@
       </ul>
     </section>
 
-    <section id="trap">
-      <h2><span class="num">05</span>The "Later" Trap</h2>
-      <p class="sub">How a calm delay quietly costs a booking</p>
-      <p>Nobody decides to lose a client. It happens in small, reasonable-sounding steps:</p>
-      <ol class="steps">
-        <li>An enquiry comes in. You'll look at it properly after this other thing.</li>
-        <li>You get to it late in the day, so you'll send the quote first thing tomorrow.</li>
-        <li>Tomorrow, the fare has moved, so you need to re-check pricing.</li>
-        <li>By the time the quote goes out, the client has already paid a deposit somewhere else.</li>
-      </ol>
-      <div class="callout warn">
-        <strong>None of those steps felt urgent</strong>
-        That's the trap. Each delay felt fine on its own. Together, they cost the booking. A sense of urgency is just noticing the trap early and breaking the chain at step one.
-      </div>
-    </section>
-
     <section id="scenarios">
-      <h2><span class="num">06</span>Urgent or Not?</h2>
+      <h2><span class="num">07</span>Urgent or Not?</h2>
       <p class="sub">Have a think before you reveal the answer</p>
 
       <div class="scenario">
-        <div class="q"><b>Scenario 1.</b> A new enquiry for a Grand Prix lands at 4:30pm. You're tired and planning to leave at 5.<br><button onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
+        <div class="q"><b>Scenario 1.</b> A new enquiry for a Grand Prix lands at 4:30pm. You're tired and planning to leave at 5.<br><button type="button" onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
         <div class="a"><strong>Urgent, but small.</strong> You don't need to build the full quote tonight. A quick call or message to acknowledge it and ask your key questions takes a few minutes, keeps you well inside the 24-hour standard, and means you're first in their inbox tomorrow.</div>
       </div>
-
       <div class="scenario">
-        <div class="q"><b>Scenario 2.</b> A client has asked you to tweak the font on their itinerary PDF. You also have a supplier hold expiring tomorrow morning.<br><button onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
+        <div class="q"><b>Scenario 2.</b> A client has asked you to tweak the font on their itinerary PDF. You also have a supplier hold expiring tomorrow morning.<br><button type="button" onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
         <div class="a"><strong>The hold wins.</strong> The font can wait an hour. The hold can't. Urgency is partly about choosing the right thing first.</div>
       </div>
-
       <div class="scenario">
-        <div class="q"><b>Scenario 3.</b> A client says they'll think about the quote and get back to you "sometime next week".<br><button onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
+        <div class="q"><b>Scenario 3.</b> A client says they'll think about the quote and get back to you "sometime next week".<br><button type="button" onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
         <div class="a"><strong>Not urgent today, but it needs a date.</strong> Park it with a future task and a specific recontact day. Calm is fine. Forgetting is not.</div>
       </div>
-
       <div class="scenario">
-        <div class="q"><b>Scenario 4.</b> A client emails to say they're still waiting on something you promised yesterday. You're busy with a new enquiry.<br><button onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
+        <div class="q"><b>Scenario 4.</b> A client emails to say they're still waiting on something you promised yesterday. You're busy with a new enquiry.<br><button type="button" onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
         <div class="a"><strong>Urgent, right now.</strong> A broken promise hurts trust fast. Reply straight away, own it, and give them a time you'll actually hit.</div>
       </div>
-
       <div class="scenario">
-        <div class="q"><b>Scenario 5.</b> A client asks whether their deposit has come through. You need to check with accounts, who won't get back to you until tomorrow.<br><button onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
+        <div class="q"><b>Scenario 5.</b> A client asks whether their deposit has come through. You need to check with accounts, who won't get back to you until tomorrow.<br><button type="button" onclick="this.closest('.scenario').classList.toggle('open')">Reveal</button></div>
         <div class="a"><strong>Reply now, not tomorrow.</strong> The 24 hours doesn't apply to payments. Let the client know straight away that you're checking with accounts and when they'll hear from you, so they're not left wondering where their money is.</div>
       </div>
     </section>
 
-    <section id="facilitator">
-      <h2><span class="num">07</span>Running This Session</h2>
-      <p class="sub">Notes for the facilitator</p>
-      <div class="callout good">
-        <strong>Tone to aim for</strong>
-        Respect the calm. The message isn't "you're too slow", it's "your calm is an asset, now let's point it at the things with a clock on them". People change habits when they feel understood, not when they feel told off.
-      </div>
-      <h3>How to pitch it so it lands</h3>
-      <ul class="checklist">
-        <li><strong>Explain the why, not just the rule.</strong> "Because we said so" gets pushback. "Because the fare moves and the client is shopping around" gets buy-in.</li>
-        <li><strong>Make it about their reputation and their wins.</strong> Clients remember who looked after them. Frame it as their name on the booking, not management wanting faster replies.</li>
-        <li><strong>Bring a real story.</strong> A booking the team lost because of a slow reply, or won because someone moved fast, will land harder than any analogy here.</li>
-        <li><strong>Personal bests, not leaderboards.</strong> If you track anything, compare each person to their own previous week, never to each other.</li>
-        <li><strong>Give them ownership of the how.</strong> Set the standard, then let each person choose how they'll hit it, whether that's batching replies, reminders, or a morning check.</li>
-      </ul>
-      <h3>Discussion prompts</h3>
-      <ul class="checklist">
-        <li>When was the last time you were left waiting on a business or a person? How did it change how you felt about them?</li>
-        <li>What's one thing in your day that has a clock on it that's easy to forget?</li>
-        <li>Which of the "Vamoos" habits in section 04 do you already do? Which one would make the biggest difference if you started tomorrow?</li>
-        <li>Where does urgency tip into panic for you, and how do you stay on the right side of that line?</li>
-      </ul>
-      <h3>To close</h3>
-      <p>Ask each person to pick one habit from section 04 to commit to for the next two weeks, and check back in on it at the end of the two-week run.</p>
-    </section>
+    <div class="closer">
+      <h3>Your one <span>thing</span></h3>
+      <p>Pick one habit from section 06 that you don't do yet. Do it every day for the next two weeks. That's it. Calm stays, later goes.</p>
+    </div>
 
   </div>
 
   <footer>Edusport Travel and Tours · Sense of Urgency · Team Development · Internal Use Only</footer>
 </div>
+
+<script>
+(function(){
+  var race=document.getElementById('race'), btn=document.getElementById('raceBtn'),
+      clock=document.getElementById('raceClock'), bar=document.getElementById('raceBar'),
+      end=document.getElementById('raceEnd'), evs=race.querySelectorAll('.ev');
+  var steps=[
+    {t:'Day 1 · 09:02'},{t:'Day 1 · 09:15'},{t:'Day 1 · 09:30'},{t:'Day 1 · 12:00'},
+    {t:'Day 1 · 16:45'},{t:'Day 2 · 09:00'},{t:'Day 2 · 11:30'},{t:'Day 2 · 12:10'}
+  ];
+  var timers=[], played=false;
+  function reset(){
+    timers.forEach(clearTimeout); timers=[];
+    evs.forEach(function(e){e.classList.remove('show');});
+    end.classList.remove('show'); bar.style.width='0'; clock.textContent='Day 1 · 09:00';
+  }
+  function play(){
+    reset(); played=true; btn.textContent='↻ Replay';
+    steps.forEach(function(s,i){
+      timers.push(setTimeout(function(){
+        clock.textContent=s.t;
+        bar.style.width=((i+1)/steps.length*100)+'%';
+        race.querySelectorAll('.ev[data-s="'+(i+1)+'"]').forEach(function(e){e.classList.add('show');});
+        if(i===steps.length-1){ timers.push(setTimeout(function(){end.classList.add('show');},900)); }
+      }, 400+i*1500));
+    });
+  }
+  btn.addEventListener('click',play);
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){
+    evs.forEach(function(e){e.classList.add('show');}); end.classList.add('show');
+    bar.style.width='100%'; clock.textContent='Day 2 · 12:10'; btn.textContent='↻ Replay';
+  } else if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en,ob){
+      en.forEach(function(x){ if(x.isIntersecting && !played){ play(); ob.disconnect(); } });
+    },{threshold:.4}).observe(race);
+  }
+})();
+</script>
 </body>
 </html>
